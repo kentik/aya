@@ -89,7 +89,8 @@ impl Default for PinningType {
 
 // Features implements BPF and BTF feature detection
 #[derive(Default, Debug)]
-pub(crate) struct Features {
+#[allow(missing_docs)]
+pub struct Features {
     pub bpf_name: bool,
     pub btf: bool,
     pub btf_func: bool,
@@ -158,11 +159,12 @@ impl Features {
 /// # Ok::<(), aya::BpfError>(())
 /// ```
 #[derive(Debug)]
+#[allow(missing_docs)]
 pub struct BpfLoader<'a> {
     btf: Option<Cow<'a, Btf>>,
     map_pin_path: Option<PathBuf>,
     globals: HashMap<&'a str, &'a [u8]>,
-    features: Features,
+    pub features: Features,
     extensions: HashSet<&'a str>,
 }
 
